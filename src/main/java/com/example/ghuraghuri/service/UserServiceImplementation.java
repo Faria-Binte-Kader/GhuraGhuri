@@ -5,6 +5,9 @@ import com.example.ghuraghuri.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class UserServiceImplementation implements UserService{
     @Autowired
@@ -13,4 +16,22 @@ public class UserServiceImplementation implements UserService{
     public User newUser(User user) {
         return repo.save(user);
     }
+
+    @Override
+    public List<User> findByEmail(String email) {
+        List<User> users = repo.findByEmail(email);
+        if(users.size()==0)
+        {
+            User user = new User();
+            users.add(user);
+        }
+        return users;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+        return repo.findAll();
+    }
+
+
 }

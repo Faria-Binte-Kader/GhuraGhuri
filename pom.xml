@@ -15,6 +15,7 @@
     <description>GhuraGhuri</description>
     <properties>
         <java.version>11</java.version>
+        <jackson.version>2.4.4</jackson.version>
     </properties>
     <dependencies>
         <dependency>
@@ -54,14 +55,6 @@
         <dependency>
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.session</groupId>
-            <artifactId>spring-session-jdbc</artifactId>
         </dependency>
     </dependencies>
 
