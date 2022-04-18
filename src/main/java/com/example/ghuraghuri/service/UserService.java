@@ -7,6 +7,8 @@ import java.util.List;
 public interface UserService {
     public User newUser(User user);
 
+    public User updateUser(User user);
+
     public List<User> findByEmail(String email);
 
     public List<User> getAllUsers();

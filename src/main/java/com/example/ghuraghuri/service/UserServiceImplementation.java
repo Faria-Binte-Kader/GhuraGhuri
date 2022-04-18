@@ -18,6 +18,11 @@ public class UserServiceImplementation implements UserService{
     }
 
     @Override
+    public User updateUser(User user) {
+        return repo.save(user);
+    }
+
+    @Override
     public List<User> findByEmail(String email) {
         List<User> users = repo.findByEmail(email);
         if(users.size()==0)

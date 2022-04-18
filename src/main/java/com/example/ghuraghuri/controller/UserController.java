@@ -36,5 +36,16 @@ public class UserController {
     public ResponseEntity<List<User>> getUserByMail(@RequestParam String mail){
         return new ResponseEntity<List<User>>(userService.findByEmail(mail), HttpStatus.OK);
     }
+
+    @PutMapping("update/mail")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<User> updateUser(@PathVariable(value = "mail") String mail, @RequestBody User user){
+        List<User> users = userService.findByEmail(mail);
+        users.get(0).setName(user.getName());
+        users.get(0).setArea(user.getArea());
+        users.get(0).setAddress(user.getAddress());
+        final User updatedUser = userService.updateUser(users.get(0));
+        return ResponseEntity.ok(updatedUser);
+    }
 }
 
