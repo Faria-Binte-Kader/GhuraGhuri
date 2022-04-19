@@ -39,8 +39,13 @@ public class LocationServiceImplementation implements LocationService{
     }
 
     @Override
-    public List<Location> findByName(String name) {
-        return locationRepository.findByName(name);
+    public List<Location> findByNameContainingOrderByNameAsc(String name) {
+        return locationRepository.findByNameContainingOrderByNameAsc(name);
+    }
+
+    @Override
+    public List<Location> findByNameContainingOrderByNameDesc(String name) {
+        return locationRepository.findByNameContainingOrderByNameDesc(name);
     }
 
     @Override
@@ -63,6 +68,26 @@ public class LocationServiceImplementation implements LocationService{
     }
 
     @Override
+    public List<Location> findByNameContainingAndDivisionOrderByNameAsc(String name, String division) {
+        return locationRepository.findByNameContainingAndDivisionOrderByNameAsc(name, division);
+    }
+
+    @Override
+    public List<Location> findByNameContainingAndDivisionOrderByNameDesc(String name, String division) {
+        return locationRepository.findByNameContainingAndDivisionOrderByNameDesc(name, division);
+    }
+
+    @Override
+    public List<Location> findByNameContainingAndTypeOrderByNameAsc(String name, String type) {
+        return locationRepository.findByNameContainingAndTypeOrderByNameAsc(name, type);
+    }
+
+    @Override
+    public List<Location> findByNameContainingAndTypeOrderByNameDesc(String name, String type) {
+        return locationRepository.findByNameContainingAndTypeOrderByNameDesc(name, type);
+    }
+
+    @Override
     public List<Location> findByDivisionAndTypeOrderByNameAsc(String division, String type) {
         return locationRepository.findByDivisionAndTypeOrderByNameAsc(division, type);
     }
@@ -70,6 +95,16 @@ public class LocationServiceImplementation implements LocationService{
     @Override
     public List<Location> findByDivisionAndTypeOrderByNameDesc(String division, String type) {
         return locationRepository.findByDivisionAndTypeOrderByNameDesc(division, type);
+    }
+
+    @Override
+    public List<Location> findByNameContainingAndDivisionAndTypeOrderByNameAsc(String name, String division, String type) {
+        return locationRepository.findByNameContainingAndDivisionAndTypeOrderByNameAsc(name, division, type);
+    }
+
+    @Override
+    public List<Location> findByNameContainingAndDivisionAndTypeOrderByNameDesc(String name, String division, String type) {
+        return locationRepository.findByNameContainingAndDivisionAndTypeOrderByNameDesc(name, division, type);
     }
 
 

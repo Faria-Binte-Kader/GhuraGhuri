@@ -41,17 +41,15 @@ public class LocationController {
         return locationService.findByOrderByNameDesc();
     }
 
-
-    @GetMapping("discoverSearchName/name")
-    public ResponseEntity<List<Location>> getByName(@RequestParam String name){
-        return new ResponseEntity<List<Location>>(locationService.findByName(name), HttpStatus.OK);
+    @GetMapping("/discoverSearchName/name")
+    public ResponseEntity<List<Location>> searchLocationsName(@RequestParam String name){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingOrderByNameAsc(name), HttpStatus.OK);
     }
 
-
-    /*@GetMapping("/discoverSearchName")
-    public List<Location> searchLocationsName(@QueryParam("name") String name){
-        return locationService.searchLocationsName(name);
-    }*/
+    @GetMapping("/discoverSearchNameUp/name")
+    public ResponseEntity<List<Location>> searchLocationsNameUp(@RequestParam String name){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingOrderByNameDesc(name), HttpStatus.OK);
+    }
 
     @GetMapping("/discoverSearchDivision/division")
     public ResponseEntity<List<Location>> searchLocationsDivision(@RequestParam String division){
@@ -73,6 +71,27 @@ public class LocationController {
         return new ResponseEntity<List<Location>>(locationService.findByTypeOrderByNameDesc(type), HttpStatus.OK);
     }
 
+    @GetMapping("/discoverSearchNameDivision/namedivision")
+    public ResponseEntity<List<Location>> searchLocationsNameDivision(@RequestParam String name, @RequestParam String division){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingAndDivisionOrderByNameAsc(name, division), HttpStatus.OK);
+    }
+
+    @GetMapping("/discoverSearchNameDivisionUp/namedivision")
+    public ResponseEntity<List<Location>> searchLocationsNameDivisionUp(@RequestParam String name, @RequestParam String division){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingAndDivisionOrderByNameDesc(name, division), HttpStatus.OK);
+    }
+
+    @GetMapping("/discoverSearchNameType/nametype")
+    public ResponseEntity<List<Location>> searchLocationsNameType(@RequestParam String name, @RequestParam String type){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingAndTypeOrderByNameAsc(name, type), HttpStatus.OK);
+    }
+
+    @GetMapping("/discoverSearchNameTypeUp/nametype")
+    public ResponseEntity<List<Location>> searchLocationsNameTypeUp(@RequestParam String name, @RequestParam String type){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingAndTypeOrderByNameDesc(name, type), HttpStatus.OK);
+    }
+
+
     @GetMapping("/discoverSearchDivisionType/divisiontype")
     public ResponseEntity<List<Location>> searchLocationsTypeAndDivision(@RequestParam String division, @RequestParam String type){
         return new ResponseEntity<List<Location>>(locationService.findByDivisionAndTypeOrderByNameAsc(division,type), HttpStatus.OK);
@@ -81,5 +100,15 @@ public class LocationController {
     @GetMapping("/discoverSearchDivisionTypeUp/divisiontype")
     public ResponseEntity<List<Location>> searchLocationsTypeAndDivisionUp(@RequestParam String division, @RequestParam String type){
         return new ResponseEntity<List<Location>>(locationService.findByDivisionAndTypeOrderByNameDesc(division,type), HttpStatus.OK);
+    }
+
+    @GetMapping("/discoverSearchNameDivisionType/namedivisiontype")
+    public ResponseEntity<List<Location>> searchLocationsNameDivisionType(@RequestParam String name, @RequestParam String division, @RequestParam String type){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingAndDivisionAndTypeOrderByNameAsc(name, division, type), HttpStatus.OK);
+    }
+
+    @GetMapping("/discoverSearchNameDivisionTypeUp/namedivisiontype")
+    public ResponseEntity<List<Location>> searchLocationsNameDivisionTypeUp(@RequestParam String name, @RequestParam String division, @RequestParam String type){
+        return new ResponseEntity<List<Location>>(locationService.findByNameContainingAndDivisionAndTypeOrderByNameDesc(name, division, type), HttpStatus.OK);
     }
 }
