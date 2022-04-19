@@ -29,6 +29,54 @@ public class LocationServiceImplementation implements LocationService{
     }
 
     @Override
+    public List<Location> findByOrderByNameAsc() {
+        return locationRepository.findByOrderByNameAsc();
+    }
+
+    @Override
+    public List<Location> findByOrderByNameDesc() {
+        return locationRepository.findByOrderByNameDesc();
+    }
+
+    @Override
+    public List<Location> findByName(String name) {
+        return locationRepository.findByName(name);
+    }
+
+    @Override
+    public List<Location> findByDivisionOrderByNameAsc(String division) {
+        return locationRepository.findByDivisionOrderByNameAsc(division);
+    }
+    @Override
+    public List<Location> findByDivisionOrderByNameDesc(String division) {
+        return locationRepository.findByDivisionOrderByNameDesc(division);
+    }
+
+    @Override
+    public List<Location> findByTypeOrderByNameAsc(String type) {
+        return locationRepository.findByTypeOrderByNameAsc(type);
+    }
+
+    @Override
+    public List<Location> findByTypeOrderByNameDesc(String type) {
+        return locationRepository.findByTypeOrderByNameDesc(type);
+    }
+
+    @Override
+    public List<Location> findByDivisionAndTypeOrderByNameAsc(String division, String type) {
+        return locationRepository.findByDivisionAndTypeOrderByNameAsc(division, type);
+    }
+
+    @Override
+    public List<Location> findByDivisionAndTypeOrderByNameDesc(String division, String type) {
+        return locationRepository.findByDivisionAndTypeOrderByNameDesc(division, type);
+    }
+
+
+
+
+
+    /*@Override
     public List<Location> getLocationsSortDown() {
         ArrayList<Location> results = (ArrayList<Location>) entityManager.createNativeQuery("SELECT * FROM location ORDER BY location.name ASC").getResultList();
         return results;
@@ -46,7 +94,7 @@ public class LocationServiceImplementation implements LocationService{
         String query = "SELECT * FROM location WHERE name LIKE '%" + Name + "%' ORDER BY name ASC";
         List<Location> results = entityManager.createNativeQuery(query).getResultList();
         return results;
-         */
+
         return locationRepository.findByNameContaining(name);
     }
 
@@ -56,7 +104,7 @@ public class LocationServiceImplementation implements LocationService{
         String query = "SELECT * FROM location WHERE division LIKE '%" + Division + "%' ORDER BY name ASC";
         List<Location> results = entityManager.createNativeQuery(query).getResultList();
         return results;
-         */
+
         return locationRepository.findByDivisionContaining(Division);
     }
 
@@ -83,5 +131,5 @@ public class LocationServiceImplementation implements LocationService{
     @Override
     public List<Location> searchLocationsNameDivisionType() {
         return locationRepository.findAll();
-    }
+    }*/
 }

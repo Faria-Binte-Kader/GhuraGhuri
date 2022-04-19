@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.ws.rs.QueryParam;
 import java.util.List;
 
 @RestController
@@ -37,10 +38,10 @@ public class UserController {
         return new ResponseEntity<List<User>>(userService.findByEmail(mail), HttpStatus.OK);
     }
 
-    @PutMapping("update/mail")
+    @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
-    public ResponseEntity<User> updateUser(@PathVariable(value = "mail") String mail, @RequestBody User user){
-        List<User> users = userService.findByEmail(mail);
+    public ResponseEntity<User> updateUser(@RequestBody User user){
+        List<User> users = userService.findByEmail(user.getEmail());
         users.get(0).setName(user.getName());
         users.get(0).setArea(user.getArea());
         users.get(0).setAddress(user.getAddress());
