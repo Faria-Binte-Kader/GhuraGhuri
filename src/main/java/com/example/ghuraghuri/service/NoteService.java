@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface NoteService {
     public Note newNote(Note note);
-    public List<Note> findNoteByPlanId(Long planid);
+    public List<Note> findNoteByPlanId(Long planId);
     public Note updateNote(Note note);
     public void deleteNote(Note note);
 }

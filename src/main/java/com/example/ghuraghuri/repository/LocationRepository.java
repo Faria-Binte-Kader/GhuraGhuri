@@ -41,7 +41,10 @@ public interface LocationRepository extends JpaRepository<Location,Integer> {
   @Query(value = "SELECT * FROM location l WHERE l.name LIKE %?1% AND l.type=?2 ORDER BY l.name DESC", nativeQuery = true)
   List<Location> findByNameContainingAndTypeOrderByNameDesc(String name, String type);
 
+  @Query(value = "SELECT * FROM location l WHERE l.division=?1 AND l.type=?2 ORDER BY l.name ASC", nativeQuery = true)
   List<Location> findByDivisionAndTypeOrderByNameAsc(String division, String type);
+
+  @Query(value = "SELECT * FROM location l WHERE l.division=?1 AND l.type=?2 ORDER BY l.name DESC", nativeQuery = true)
   List<Location> findByDivisionAndTypeOrderByNameDesc(String division, String type);
 
   @Query(value = "SELECT * FROM location l WHERE l.name LIKE %?1% AND l.division=?2 AND l.type=?3 ORDER BY l.name ASC", nativeQuery = true)

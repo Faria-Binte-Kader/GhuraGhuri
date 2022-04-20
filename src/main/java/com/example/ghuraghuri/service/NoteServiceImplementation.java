@@ -24,8 +24,8 @@ public class NoteServiceImplementation implements NoteService{
     }
 
     @Override
-    public List<Note> findNoteByPlanId(Long planid) {
-        List<Note> notes = noteRepository.findByPlanid(planid);
+    public List<Note> findNoteByPlanId(Long planId) {
+        List<Note> notes = noteRepository.findByPlanId(planId);
 
         return notes;
     }

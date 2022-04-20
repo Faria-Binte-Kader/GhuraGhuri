@@ -24,9 +24,9 @@ public class NoteController {
         return "New Note added" + note.getPlanId();
     }
 
-    @GetMapping("getByPlanId/planid")
-    public ResponseEntity<List<Note>> getByPlanId(@RequestParam Long planid){
-        return new ResponseEntity<List<Note>>(noteService.findNoteByPlanId(planid), HttpStatus.OK);
+    @GetMapping("getByPlanId/planId")
+    public ResponseEntity<List<Note>> getByPlanId(@RequestParam Long planId){
+        return new ResponseEntity<List<Note>>(noteService.findNoteByPlanId(planId), HttpStatus.OK);
     }
 
     /*@PostMapping("/update")

@@ -9,11 +9,11 @@ public class Note {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    private Long planid;
+    private Long planId;
     private String description;
 
-    public Note(Long planid, String description) {
-        this.planid = planid;
+    public Note(Long planId, String description) {
+        this.planId = planId;
         this.description = description;
     }
 
@@ -30,11 +30,11 @@ public class Note {
     }
 
     public Long getPlanId() {
-        return planid;
+        return planId;
     }
 
-    public void setPlanId(Long planid) {
-        this.planid = planid;
+    public void setPlanId(Long planId) {
+        this.planId = planId;
     }
 
     public String getDescription() {
