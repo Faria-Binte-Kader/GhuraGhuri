@@ -1,5 +1,4 @@
 package com.example.ghuraghuri.model;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +12,7 @@ public class Pin {
     private String rating;
     private String lat;
     private String lng;
+
 
     public Pin(){
 

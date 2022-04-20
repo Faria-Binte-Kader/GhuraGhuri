@@ -14,6 +14,11 @@ public class PinServiceImplementation implements PinService {
     PinRepository repo;
 
     @Override
+    public Pin newPin(Pin pin) {
+        return repo.save(pin);
+    }
+
+    @Override
     public List<Pin> getAllPins() {
         return repo.findAll();
     }
