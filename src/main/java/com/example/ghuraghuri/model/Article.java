@@ -1,6 +1,7 @@
 package com.example.ghuraghuri.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "article")
@@ -10,6 +11,7 @@ public class Article {
     private int id;
     private int userid;
     private String title;
+    @Column(length=2500)
     private String description;
     private int like;
     private int dislike;

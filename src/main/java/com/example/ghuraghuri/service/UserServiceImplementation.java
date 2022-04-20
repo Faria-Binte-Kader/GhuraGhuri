@@ -38,5 +38,16 @@ public class UserServiceImplementation implements UserService{
         return repo.findAll();
     }
 
+    @Override
+    public List<User> getUserById(int id) {
+        List<User> users = repo.findById(id);
+        if(users.size()==0)
+        {
+            User user = new User();
+            users.add(user);
+        }
+        return users;
+    }
+
 
 }

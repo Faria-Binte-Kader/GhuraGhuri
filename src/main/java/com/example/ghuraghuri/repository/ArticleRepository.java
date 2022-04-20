@@ -10,4 +10,6 @@ import java.util.List;
 public interface ArticleRepository extends JpaRepository<Article,Integer> {
     List<Article> findTop3ByOrderByLikeDesc();
     List<Article> findAllByOrderByLikeDesc();
+    List<Article> findById(int id);
+    List<Article> findByUserid(int userid);
 }

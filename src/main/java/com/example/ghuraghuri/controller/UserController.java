@@ -38,6 +38,12 @@ public class UserController {
         return new ResponseEntity<List<User>>(userService.findByEmail(mail), HttpStatus.OK);
     }
 
+    @GetMapping("getById/id")
+    public ResponseEntity<List<User>> getUserById(@RequestParam int id){
+       // int idint = Integer.parseInt(id);
+        return new ResponseEntity<List<User>>(userService.getUserById(id), HttpStatus.OK);
+    }
+
     @PostMapping("/update")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<User> updateUser(@RequestBody User user){
