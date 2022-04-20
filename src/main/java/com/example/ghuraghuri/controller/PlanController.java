@@ -1,10 +1,7 @@
 package com.example.ghuraghuri.controller;
 
-import com.example.ghuraghuri.model.Location;
 import com.example.ghuraghuri.model.Plan;
-import com.example.ghuraghuri.model.User;
 import com.example.ghuraghuri.service.PlanService;
-import com.example.ghuraghuri.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -50,5 +47,11 @@ public class PlanController {
         plans.get(0).setDescription(plan.getDescription());
         final Plan updatedPlan = planService.updatePlan(plans.get(0));
         return ResponseEntity.ok(updatedPlan);
+    }
+
+    @PostMapping("/delete")
+    public String deletePlan(@RequestBody Plan plan){
+        planService.deletePlan(plan);
+        return "Plan deleted";
     }
 }

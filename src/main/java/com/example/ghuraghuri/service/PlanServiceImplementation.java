@@ -1,7 +1,6 @@
 package com.example.ghuraghuri.service;
 
 import com.example.ghuraghuri.model.Plan;
-import com.example.ghuraghuri.model.User;
 import com.example.ghuraghuri.repository.PlanRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,5 +45,11 @@ public class PlanServiceImplementation implements PlanService{
     @Override
     public Plan updatePlan(Plan plan) {
         return planRepository.save(plan);
+    }
+
+    @Override
+    public void deletePlan(Plan plan) {
+        planRepository.delete(plan);
+        return;
     }
 }

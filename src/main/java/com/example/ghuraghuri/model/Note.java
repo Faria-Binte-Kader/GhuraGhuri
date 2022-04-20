@@ -2,25 +2,22 @@ package com.example.ghuraghuri.model;
 
 import javax.persistence.*;
 
-@Table(name = "plan")
+@Table(name = "note")
 @Entity
-public class Plan {
+public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    private String name;
-    private String email;
+    private Long planid;
     private String description;
 
-    public Plan(Long id, String name, String email, String description) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
+    public Note(Long planid, String description) {
+        this.planid = planid;
         this.description = description;
     }
 
-    public Plan() {
+    public Note() {
 
     }
 
@@ -32,20 +29,12 @@ public class Plan {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public Long getPlanId() {
+        return planid;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPlanId(Long planid) {
+        this.planid = planid;
     }
 
     public String getDescription() {
