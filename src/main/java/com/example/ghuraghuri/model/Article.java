@@ -15,6 +15,7 @@ public class Article {
     private String description;
     private int like;
     private int dislike;
+    private String imageURL;
 
     public int getId() {
         return id;
@@ -83,6 +84,4 @@ public class Article {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-
-    private String imageURL;
 }

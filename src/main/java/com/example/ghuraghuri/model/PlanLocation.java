@@ -20,7 +20,6 @@ public class PlanLocation {
     }
 
     public PlanLocation() {
-
     }
 
     public Long getId() {
@@ -51,7 +50,7 @@ public class PlanLocation {
         return locationName;
     }
 
-    public void setLocationName(String id) {
+    public void setLocationName(String locationName) {
         this.locationName = locationName;
     }
 }
