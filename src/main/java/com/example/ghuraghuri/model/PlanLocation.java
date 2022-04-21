@@ -7,52 +7,51 @@ import javax.persistence.*;
 public class PlanLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int planlocationid;
-    private int planid;
-    private int locationid;
+    @Column(name = "id", nullable = false)
+    private Long id;
+    private Long planId;
+    private Long locationId;
+    private String locationName;
 
-    public PlanLocation(int planid, int locationid, String locationame) {
-        this.planid = planid;
-        this.locationid = locationid;
-        this.locationame = locationame;
-    }
-
-    private String locationame;
-
-
-
-    public int getPlanid() {
-        return planid;
-    }
-
-    public void setPlanid(int planid) {
-        this.planid = planid;
-    }
-
-    public int getPlanlocationid() {
-        return planlocationid;
-    }
-
-    public void setPlanlocationid(int planlocationid) {
-        this.planlocationid = planlocationid;
-    }
-
-    public String getLocationame() {
-        return locationame;
-    }
-
-    public void setLocationame(String locationame) {
-        this.locationame = locationame;
+    public PlanLocation(Long planId, Long locationId, String locationName) {
+        this.planId = planId;
+        this.locationId = locationId;
+        this.locationName = locationName;
     }
 
     public PlanLocation() {
+
     }
 
-    public int getLocationid() {
-        return locationid;
+    public Long getId() {
+        return id;
     }
 
-    public void setLocationid(int locationid) {
-        this.locationid = locationid;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getPlanId() {
+        return planId;
+    }
+
+    public void setPlanId(Long planId) {
+        this.planId = planId;
+    }
+
+    public Long getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(Long locationId) {
+        this.locationId = locationId;
+    }
+
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String id) {
+        this.locationName = locationName;
     }
 }
