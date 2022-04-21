@@ -2,6 +2,7 @@ package com.example.ghuraghuri.controller;
 
 
 import com.example.ghuraghuri.model.Note;
+import com.example.ghuraghuri.model.Plan;
 import com.example.ghuraghuri.service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,8 +21,9 @@ public class NoteController {
 
     @PostMapping("/add")
     public String addNote(@RequestBody Note note){
-        noteService.newNote(note);
-        return "New Note added" + note.getPlanId();
+        Note note1 = new Note(note.getPlanId(), note.getDescription());
+        noteService.newNote(note1);
+        return "New Note added" + note1.getPlanId();
     }
 
     @GetMapping("getByPlanId/planId")
