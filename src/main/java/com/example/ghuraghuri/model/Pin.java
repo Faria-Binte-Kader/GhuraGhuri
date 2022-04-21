@@ -10,8 +10,9 @@ public class Pin {
     private String title;
     private String desc;
     private String rating;
-    private String lat;
-    private String lng;
+    private double lat;
+    private double lng;
+    private String type;
 
 
     public Pin(){
@@ -57,19 +58,4 @@ public class Pin {
         this.rating = rating;
     }
 
-    public String getLat() {
-        return lat;
-    }
-
-    public void setLat(String lat) {
-        this.lat = lat;
-    }
-
-    public String getLng() {
-        return lng;
-    }
-
-    public void setLng(String lng) {
-        this.lng = lng;
-    }
 }

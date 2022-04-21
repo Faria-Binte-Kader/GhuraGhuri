@@ -18,12 +18,13 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("files")
+@CrossOrigin
 public class FileController {
 
     @Autowired
     private FileStorageService fileStorageService;
 
-    @PostMapping
+    @PutMapping
     public ResponseEntity<FileResponse> uploadFile(@RequestParam("file") MultipartFile file){
         String fileName = fileStorageService.storeFile(file);
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()

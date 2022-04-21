@@ -39,7 +39,7 @@ public class FileStorageService {
         String fileName = StringUtils.cleanPath(file.getOriginalFilename());
         try {
             Path targetLocation = this.fileStorageLocation.resolve(fileName);
-            Files.copy(file.getInputStream(), targetLocation,StandardCopyOption.REPLACE_EXISTING);
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
 
             return fileName;
         }catch(IOException ex) {
