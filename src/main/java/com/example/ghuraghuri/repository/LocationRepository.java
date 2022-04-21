@@ -16,6 +16,7 @@ public interface LocationRepository extends JpaRepository<Location,Integer> {
     List<Location> findByDivisionContaining(String division);*/
   List<Location> findByOrderByNameAsc();
   List<Location> findByOrderByNameDesc();
+  List<Location> findById(int id);
 
   @Query(value = "SELECT * FROM location l WHERE l.name LIKE %?1% ORDER BY l.name ASC", nativeQuery = true)
   List<Location> findByNameContainingOrderByNameAsc(String name);

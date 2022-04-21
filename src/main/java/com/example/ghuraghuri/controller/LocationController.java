@@ -31,6 +31,11 @@ public class LocationController {
         return locationService.getAllLocations();
     }
 
+    @GetMapping("/getById/id")
+    public ResponseEntity<List<Location>> getById(@RequestParam int id){
+        return new ResponseEntity<List<Location>>(locationService.findById(id), HttpStatus.OK);
+    }
+
     @GetMapping("/sortDown")
     public List<Location> getLocationsSortDown(){
         return locationService.findByOrderByNameAsc();

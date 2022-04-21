@@ -29,6 +29,11 @@ public class LocationServiceImplementation implements LocationService{
     }
 
     @Override
+    public List<Location> findById(int id) {
+        return locationRepository.findById(id);
+    }
+
+    @Override
     public List<Location> findByOrderByNameAsc() {
         return locationRepository.findByOrderByNameAsc();
     }

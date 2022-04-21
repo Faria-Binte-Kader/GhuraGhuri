@@ -8,6 +8,7 @@ import java.util.List;
 public interface LocationService {
     public Location newLocation(Location location);
     public List<Location> getAllLocations();
+    public List<Location> findById(int id);
     public List<Location> findByOrderByNameAsc();
     public List<Location> findByOrderByNameDesc();
     List<Location> findByNameContainingOrderByNameAsc(String name);
