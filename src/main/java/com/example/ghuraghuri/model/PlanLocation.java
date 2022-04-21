@@ -1,25 +1,25 @@
 package com.example.ghuraghuri.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="planlocation")
 public class PlanLocation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int planLocationId;
+    private int planlocationid;
     private int planid;
     private int locationid;
 
-    public int getPlanLocationId() {
-        return planLocationId;
+    public PlanLocation(int planid, int locationid, String locationame) {
+        this.planid = planid;
+        this.locationid = locationid;
+        this.locationame = locationame;
     }
 
-    public void setPlanLocationId(int planLocationId) {
-        this.planLocationId = planLocationId;
-    }
+    private String locationame;
+
+
 
     public int getPlanid() {
         return planid;
@@ -29,9 +29,20 @@ public class PlanLocation {
         this.planid = planid;
     }
 
-    public PlanLocation(int planid, int locationid) {
-        this.planid = planid;
-        this.locationid = locationid;
+    public int getPlanlocationid() {
+        return planlocationid;
+    }
+
+    public void setPlanlocationid(int planlocationid) {
+        this.planlocationid = planlocationid;
+    }
+
+    public String getLocationame() {
+        return locationame;
+    }
+
+    public void setLocationame(String locationame) {
+        this.locationame = locationame;
     }
 
     public PlanLocation() {

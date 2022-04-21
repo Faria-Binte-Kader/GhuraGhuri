@@ -13,6 +13,7 @@ import java.util.List;
 public class PlanLocationController {
     @Autowired
     PlanLocationService planLocationService;
+
     @PostMapping("/add")
     public String addPlan(@RequestBody PlanLocation planLocation){
         planLocationService.newPlanLocation(planLocation);
